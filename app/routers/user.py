@@ -13,10 +13,6 @@ router = APIRouter(prefix='/user',tags=['user'])
 @router.get('/')
 async def all_users(db: Annotated[Session,Depends(get_db)]):
     users = db.scalars(select(User)).all()
-    '''res=[]
-    for i in users:
-        res.append(i)
-    return res'''
     return users
 
 
