@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routers import task,user
+from sqlalchemy.schema import CreateTable
 
 app = FastAPI()
 
@@ -10,6 +11,6 @@ async def welcome():
 app.include_router(user.router)
 app.include_router(task.router)
 
-#if __name__ == "__main__":
-#   import uvicorn
-#   uvicorn.run(app)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app)
