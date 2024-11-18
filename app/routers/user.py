@@ -70,6 +70,7 @@ async def delete_user(user_id: int,db: Annotated[Session,Depends(get_db)]):
         )
     else:
         db.execute(delete(User).where(User.id == user_id))
+        db.execute(delete(Task).where(Task.user_id == user_id))
         db.commit()
         return {
             "status_code": status.HTTP_200_OK,
